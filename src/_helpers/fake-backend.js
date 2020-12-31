@@ -71,7 +71,7 @@ export function configureFakeBackend() {
                 }
 
                 // register user
-                if (url.endsWith('/users/register') && opts.method === 'POST') {
+                if (url.endsWith('/users/registro') && opts.method === 'POST') {
                     // get new user object from post body
                     let newUser = JSON.parse(opts.body);
 

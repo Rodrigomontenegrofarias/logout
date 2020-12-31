@@ -7,7 +7,7 @@ import { alertActions } from '../_actions';
 import { PrivateRoute } from '../_components';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
+import { RegisterPage } from '../registerPage';
 
 class App extends React.Component {
     constructor(props) {
@@ -24,15 +24,16 @@ class App extends React.Component {
         return (
             <div className="jumbotron">
                 <div className="container">
-                    <div className="col-sm-8 col-sm-offset-2">
+                    <div className="col-md-8 col-md-offset-2">
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
+                    
                         <Router history={history}>
                             <Switch>
                                 <PrivateRoute exact path="/" component={HomePage} />
-                                <Route path="/login" component={LoginPage} />
-                                <Route path="/register" component={RegisterPage} />
+                                <Route path="/inicio" component={LoginPage} />
+                                <Route path="/registro" component={RegisterPage} />
                                 <Redirect from="*" to="/" />
                             </Switch>
                         </Router>
