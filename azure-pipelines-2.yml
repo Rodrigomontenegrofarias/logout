@@ -4,11 +4,6 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/build'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
 - main
 
 pool:
@@ -25,4 +20,8 @@ steps:
     npm install
     
   displayName: 'npm install, run webpack'
-
+ - task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/build'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
