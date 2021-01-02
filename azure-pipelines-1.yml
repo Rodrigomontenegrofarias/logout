@@ -17,12 +17,11 @@ steps:
 
 - script: |
     npm install
-    npm build
+    npm run build
   displayName: 'npm install and build'
   
-  
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/build'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/build'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
