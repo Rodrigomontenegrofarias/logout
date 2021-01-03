@@ -16,8 +16,10 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
     
+    npm install -g webpack webpack-cli --save-dev
+    npm install
+    npx webpack --config webpack.config.js
   displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
   inputs:
